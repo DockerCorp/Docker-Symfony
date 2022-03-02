@@ -20,4 +20,6 @@ RUN curl https://api.github.com/repos/symfony-cli/symfony-cli/releases/latest | 
 
 WORKDIR /var/www/APP
 
-CMD [ "/bin/sh", "-c", "symfony serve --no-tls" ]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT /entrypoint.sh
