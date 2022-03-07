@@ -18,7 +18,7 @@ RUN curl https://api.github.com/repos/symfony-cli/symfony-cli/releases/latest | 
     apk add --allow-untrusted /tmp/symfony-cli.apk && \
     rm -f /tmp/symfony-cli.apk
 
-WORKDIR /var/www/APP
+WORKDIR /var/www/app
 
 COPY entrypoint.sh /entrypoint.sh
 

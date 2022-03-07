@@ -1,14 +1,14 @@
 version: '3.9'
 services:
 
-  # SYMFONY : APP
+  # APP
   app:
     container_name: APP
     build: ./.docker/symfony
     ports:
       - "80:8000"
     volumes:
-      - .:/var/www/APP
+      - ./app:/var/www/app
     networks:
       - overlay
 
