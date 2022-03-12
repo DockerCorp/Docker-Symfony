@@ -1,5 +1,5 @@
 # Docker-Symfony
-This Docker template will provide you with a complete environment for Symfony.
+This Docker template provide a complete environment for Symfony.
 
 - PHP 8.1
 - Composer
