@@ -1,14 +1,12 @@
-/bin/sh
-
+#!/bin/sh
 echo "######################"
 echo "## Package versions ##"
 echo "######################"
 echo ""
-php -v | grep PHP | head -1
-composer -V
-symfony -V
-echo -e "\n"
-
+php      -v | grep -m 1 -oE "[0-9]+\.[0-9]+\.[0-9]+" | echo "PHP         : $(cat -)"
+composer -V | grep -m 1 -oE "[0-9]+\.[0-9]+\.[0-9]+" | echo "COMPOSER    : $(cat -)"
+symfony  -V | grep -m 1 -oE "[0-9]+\.[0-9]+\.[0-9]+" | echo "SYMFONY-CLI : $(cat -)"
+echo ""
 if [ -z "$(ls -A /var/www/app)" ]; then
   # Empty
   echo "############################################"
@@ -20,7 +18,7 @@ if [ -z "$(ls -A /var/www/app)" ]; then
   echo "3. You need to restart the container"
   echo ""
   echo "############################################"
-  echo -e "\n"
+  echo ""
   tail -f /dev/null
 else
   # Not Empty
@@ -29,12 +27,10 @@ else
   echo "###########################"
   echo ""
   composer install
-  echo -e "\n"
-
+  echo ""
   echo "##########################"
   echo "## Starting Symfony ... ##"
   echo "##########################"
   echo ""
   symfony serve --no-tls
-  echo -e "\n"
 fi
