@@ -30,7 +30,11 @@ docker-compose exec app sh
 
 ### ⭐ Create a new Symfony project in current working directory
 ```bash
+# Without Git (not recommended as there is no gitignore file)
 symfony new --dir=. --no-git
+# Or with Git
+symfony new --dir=.
+rm -r .git
 ```
 
 ### ⚡ Restart container to start up local web server
