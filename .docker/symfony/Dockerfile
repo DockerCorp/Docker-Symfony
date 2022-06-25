@@ -1,7 +1,7 @@
 FROM php:8.1-fpm-alpine
 
 # Php
-RUN apk add icu-dev
+RUN apk add icu-dev git
 RUN docker-php-ext-install intl opcache
 RUN docker-php-ext-configure intl
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
